@@ -26,6 +26,7 @@ int main()
 	}
 	ortalama = toplam /10;
 	cout << "Ortalama: " << ortalama << endl;
+	free(ptr);
 	*/
 	/*
 	//Soru 2
@@ -34,8 +35,10 @@ int main()
 	for(int i = 0; i < 10 ; i++)
 	{
 		cout << "Dizinin " << i+1 << ". elemaný: " << *(ptr+i) << endl;
-	 } 
+	 }
+	free(ptr); 
 	//Bütün elemanlar 0
+	
 	*/
 	/*
 	//Soru 3
@@ -52,7 +55,8 @@ int main()
 	for(int i = 0; i < 10 ; i++)
 	{
 		cout << "Dizinin " << i+1 << ". elemaný: " << *(ptr+i) << endl;
-	} 
+	}
+	free(ptr); 
 	*/
 	
 	//Soru 4

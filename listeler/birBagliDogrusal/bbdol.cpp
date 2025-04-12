@@ -1,3 +1,4 @@
+//bbdol.cpp Dosyasý
 #include <iostream>
 #include <locale.h>
 #include <conio.h>
@@ -69,7 +70,7 @@ node* cons(int data_)
 
 node* copy(node* list)
 {
-	node* l1 = newnode();
+	node* l1 = NULL;
 	if(list != NULL)
 	{
 		do
@@ -141,13 +142,13 @@ void cutlast(node*& list)
 	list = baslangic;
 }
 //--------------------------------------
-
+/*
 void free(node*& list)
 {
 	delete list;
 }
 //-------------------------------------
-
+/*
 bool advance(node*& list)
 {
 	bool advance = false;
@@ -159,7 +160,7 @@ bool advance(node*& list)
 	return(advance);
 }
 //---------------------------------------------------
-
+/*
 bool deletenode(node* node_ , node*& list)
 {
 	bool deletenode = false;
@@ -192,7 +193,7 @@ bool deletenode(node* node_ , node*& list)
 	return false;
 }
 
-
+*/
 
 
 

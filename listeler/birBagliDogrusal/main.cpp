@@ -1,3 +1,4 @@
+//main.cpp dosyasý
 #include <iostream>
 #include "bbdol.h"
 
@@ -62,6 +63,7 @@ int main(int argc, char** argv) {
 	
 	
 	
+	
 	/*
 	node* list = NULL;
 	
@@ -78,4 +80,5 @@ int main(int argc, char** argv) {
 	*/
 	system("pause");
 	return 0;
+	
 }

@@ -1,3 +1,4 @@
+//bbdol.h dosyasý
 #ifndef BBDOL_H
 #define BBDOL_H
 
@@ -18,8 +19,8 @@ node* locate(int data_ , node* list);
 bool member(node * node_ , node* list);
 node* cuthead(node*& list);
 void cutlast(node*& list);
-void free(node*& list);
-bool advance(node*& list);
+//void free(node*& list);
+//bool advance(node*& list);
 //bool deletenode(node* node_ , node*& list);
 #endif
 

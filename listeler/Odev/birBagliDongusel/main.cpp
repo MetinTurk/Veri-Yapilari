@@ -1,7 +1,6 @@
 //main.cpp
 #include <iostream>
 #include "bbdol.h"
-#include <locale.h>
 
 using namespace std;
 
@@ -12,7 +11,6 @@ void yildizbas()
 }
 int main(int argc, char** argv) {
 	
-	setlocale(LC_ALL , "Turkish");
 	/*
 	node* list = newnode();
 	cout << list << endl;
@@ -59,12 +57,12 @@ int main(int argc, char** argv) {
 	addhead(cons(32), list);
 	addhead(cons(25), list);
 	addhead(newnode() , list);
-	dumplist(list);
-	yildizbas();
-	//dumplist(copy(list));
-	yildizbas();
-	//cout << "Listenin uzunluðu: " << countlist(list) << endl;
-	cout << "Sonrasýnda node var mi: "<<advance(list) << endl;
+	dumplist(copy(list));
+	node* bulunan = locate(25, list);
+	dumplist(bulunan);
+	cout << "Aradýðýnýz deðer var mi: " << member(locate(32,list),list);
+	
+
 	
 	
 	system("pause");

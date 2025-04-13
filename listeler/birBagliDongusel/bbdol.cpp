@@ -210,7 +210,7 @@ bool deletenode(node* node_ , node*& list)
 				deletenode = true;
 				return(deletenode);
 			}
-		}while(advance(point) && ylist != point);
+		}while(advance(point) && point != list);
 	}
 }
 

@@ -3,6 +3,8 @@
 #include <locale.h>
 #include <conio.h>
 #include "bbdol.h"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -249,7 +251,109 @@ void totallist2(int& toplam , node* list)
 	}
 }
 
+node* creatlist()
+{
+	srand(time(NULL));
+	node* list = NULL;
+	for(int i = 0; i < 10 ; i++)
+	{
+		int sayi = rand() % (500-50+1)+50;
+		addhead(cons(sayi) , list);
+	}
+	return list;
+}
 
+node* findmiddle(int boyut , node* list)
+{
+	if(boyut%2 == 0)
+	{
+		boyut/= 2;
+		boyut -= 1;
+	}
+	else
+	{
+		boyut += 1;
+		boyut /= 2;
+		boyut -= 1;
+	}
+	for(int i = 0; i < boyut; i++)
+	{
+		list = list -> link;
+	}
+	list->link = NULL;
+	return list;
+}
+
+node* reverscopy(node* list)
+{
+	node* suret = NULL;
+	if(list != NULL)
+	{
+		do
+		{
+			node* yeni = cons(list->data);
+			addhead(yeni , suret);
+			list = list->link;
+		}while(list != NULL);
+	}
+	return suret;
+}
+
+void clearlist(node*& list)
+{
+	if(list != NULL)
+	{
+		while(list != NULL)
+		{
+			node* clear = cuthead(list);
+			free(clear);
+			cout << "silindi." << endl;
+		}
+	}
+}
+
+int countdata(int data_ , node* list)
+{
+	int count = 0;
+	if(list != NULL)
+	{
+		while(list != NULL)
+		{
+			if(list->data == data_)
+			{
+				count += 1;
+				cout << "eklendi" << endl;
+			}
+			list = list -> link;
+		}
+	}
+	return count;
+}
+
+bool ispalidrome(node* list)
+{
+	node* reverse = reverscopy(list);
+	while(list!= NULL && reverse != NULL)
+	{
+		if(list->data != reverse->data)
+		{
+			return false;
+		}
+		
+		list = list->link;
+		reverse = reverse->link;
+	}
+	return true;
+}
+
+bool search(int data_, node* list)
+{
+    if (list == NULL)
+        return false;
+    if (list->data == data_)
+        return true;
+    return search(data_, list->link);
+}
 
 
 

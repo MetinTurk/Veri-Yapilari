@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
 	dumplist(l2);
 	*/
 	
-	
+	/*
 	node* list = NULL;
 	addhead(newnode() , list);
 	addhead(cons(85) , list);
@@ -93,7 +93,23 @@ int main(int argc, char** argv) {
 	cout << "Toplam: " << toplam << endl;
 	dumplist(cuthead(list));
 	dumplist(list);
+	*/
 	
+	
+	node* list = NULL;
+	list = creatlist();
+	dumplist(list);
+	cout << "----------------------" << endl;
+	int boyut = 0;
+	countlist2(boyut,list);
+	//node* middlelist = findmiddle(boyut , list);
+	//dumplist(middlelist);
+	//node* copyNode = reverscopy(list);
+	//dumplist(copyNode);
+	//clearlist(list);
+	cout << "Aradığınız sayıdan :" << countdata(50, list) << " tane var." << endl;
+	cout << "Nodlar Aynı mi :" << ispalidrome(list) << endl;
+	cout << "Aradığın değer var mi: " << search(58 , list , false) << endl;
 	
 	
 	

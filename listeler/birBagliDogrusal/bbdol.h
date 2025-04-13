@@ -27,5 +27,13 @@ int countlist1(node* list);
 int totallist(node* list);
 void countlist2(int& count , node* list);
 void totallist2(int& toplam , node* list);
+node* creatlist();
+node* findmiddle(int boyut , node* list);
+node* reverscopy(node* list);
+void clearlist(node*& list);
+int countdata(int data_ , node* list);
+bool ispalidrome(node* list);
+bool search(int data_ , node* list , bool isFound = false)
+
 #endif
 

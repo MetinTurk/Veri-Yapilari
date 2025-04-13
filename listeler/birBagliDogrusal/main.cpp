@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
 	dumplist(l2);
 	
 	*/
-	
+	/*
 	node* l2 = NULL;
 	addhead(cons(48) , l2);
 	addhead(newnode(), l2);
@@ -73,7 +73,26 @@ int main(int argc, char** argv) {
 		cout << "Silme iþlemi baþarýsýz." << endl;
 	}
 	dumplist(l2);
+	*/
 	
+	
+	node* list = NULL;
+	addhead(newnode() , list);
+	addhead(cons(85) , list);
+	addhead(newnode() , list);
+	addhead(cons(45) , list);
+	cout << "Listenin uzunluðu: " << countlist(list) << endl;
+	cout << "Listenin uzunluðu: " << countlist1(list) << endl;
+	cout << "Toplam: " << totallist(list) << endl;
+	dumplist(list);
+	int say;
+	countlist2(say , list);
+	cout << "Listenin Uzunluðu: " << say << endl;
+	int toplam = 0;
+	totallist2(toplam , list);
+	cout << "Toplam: " << toplam << endl;
+	dumplist(cuthead(list));
+	dumplist(list);
 	
 	
 	

@@ -23,6 +23,7 @@ void dumplist(node* list)
 node* newnode()
 {
 	node* newnode = new node;
+	newnode->data = 0;
 	newnode -> link = NULL;
 	return(newnode);
 }
@@ -193,7 +194,60 @@ bool deletenode(node* node_ , node*& list)
 	return false;
 }
 
+int countlist(node* list)
+{
+	int count = 0;
+	if(list == NULL)
+	{
+		return count;
+	}
+	else
+	{
+		count = 1 + countlist(list -> link);
+	}
+}
 
+int countlist1(node* list)
+{
+	int count = 0;
+	if(list != NULL)
+	{
+		count = 1+ countlist(list->link);
+	}
+	return count;
+}
+
+void countlist2(int& count , node* list)
+{
+	if(list != NULL)
+	{
+		countlist2(count , list->link);
+		count = 1 + count;
+	}
+}
+
+int totallist(node* list)
+{
+	int total = 0;
+	if(list == NULL)
+	{
+		return total;
+	}
+	else
+	{
+		total = list->data + totallist(list->link);
+	}
+	return total;
+}
+
+void totallist2(int& toplam , node* list)
+{
+	if(list!=NULL)
+	{
+		totallist2(toplam , list -> link);
+		toplam = list -> data + toplam;
+	}
+}
 
 
 

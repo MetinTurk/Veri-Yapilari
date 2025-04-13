@@ -346,6 +346,7 @@ bool ispalidrome(node* list)
 	return true;
 }
 
+
 bool search(int data_, node* list)
 {
     if (list == NULL)
@@ -354,8 +355,6 @@ bool search(int data_, node* list)
         return true;
     return search(data_, list->link);
 }
-
-
 
 
 

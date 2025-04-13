@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
 	//clearlist(list);
 	cout << "Aradığınız sayıdan :" << countdata(50, list) << " tane var." << endl;
 	cout << "Nodlar Aynı mi :" << ispalidrome(list) << endl;
-	cout << "Aradığın değer var mi: " << search(58 , list , false) << endl;
+	cout << "Aradığın değer var mi: " << search(58 , list) << endl;
 	
 	
 	

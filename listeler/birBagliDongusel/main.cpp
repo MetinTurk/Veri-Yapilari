@@ -59,7 +59,9 @@ int main(int argc, char** argv) {
 	addhead(newnode() , list);
 	dumplist(list);
 	yildizbas();
-	dumplist(copy(list));
+	//dumplist(copy(list));
+	yildizbas();
+	//cout << "Listenin uzunluğu: " << countlist(list) << endl;
 	
 	
 	system("pause");

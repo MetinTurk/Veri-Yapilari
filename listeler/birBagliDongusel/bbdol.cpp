@@ -215,6 +215,28 @@ bool deletenode(node* node_ , node*& list)
 }
 
 
+//Burası hatalı çalışmıyor.
+/*	
+int countlist(node* list)
+{
+	int count = 0;
+	node* ylist = list;
+	if(list!=NULL)
+	{
+		list = list->link;
+		if(list == ylist)
+		{
+			return count;
+		}
+		else
+		{
+			count = 1 + countlist(list->link);
+		}
+	}
+	return count;
+	
+}
+*/
 
 
 

@@ -20,6 +20,10 @@ node* cuthead(node*& list);
 void free(node*& list);
 bool advance(node*& list);
 bool deletenode(node* node_ , node*& list);
+//int countlist(node* list);
+
+
+
 
 #endif
 

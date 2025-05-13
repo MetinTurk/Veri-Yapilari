@@ -158,7 +158,7 @@ node* cuthead(node*& list)
 		else
 		{
 			list = list->link;
-			last(cuthead)->link = list;
+			last(list)->link = list;
 		}
 		cuthead->link = cuthead;
 	}

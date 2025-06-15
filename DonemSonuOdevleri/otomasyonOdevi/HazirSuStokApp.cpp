@@ -26,19 +26,21 @@ void StokSil();
 void StokDuzenle();
 void DosyadanAl();
 void DosyayaAktar();
-bool ListeDenSil(const char* silMarka);
+bool ListeDenSil(Node* hedef);
 
 int main(){
 	setlocale(LC_ALL , "Turkish");
 	
 	char menu;
 	bool menuAcildiMi = false;
-	cout << "Hazýr Su Stok Takip Uygulamasýna Hoþgeldiniz...\n" << endl;
+	
 	do {
-		if(menuAcildiMi) {
-			system("cls");
-			menuAcildiMi = true;
-		}
+		system("cls");
+		if(!(menuAcildiMi)) {
+		cout << "Hazýr Su Stok Takip Uygulamasýna Hoþgeldiniz...\n" << endl;
+		menuAcildiMi = true;
+		}	
+		
 		DosyadanAl();
 		cout << "-*-*-*-*-*-*Merhaba*-*-*-*-*-*" << endl;
 		cout << "|    Lütfen Seçim Yapýnýz    |" << endl;
@@ -257,34 +259,51 @@ void StokSil() {
     } while (kontrol);
 
     Node* gecici = bas;
-    bool bulundu = false;
+    int sayac = 0;
 
     while (gecici != NULL) {
         if (strcmp(gecici->veri.marka, silinecekMarka) == 0) {
-            cout << "\nBulunan Stok Bilgisi:\n";
+            cout << "\n[" << sayac + 1 << "] Stok Bilgisi:\n";
             cout << "Marka: " << gecici->veri.marka << endl;
             cout << "Litre: " << gecici->veri.litre << endl;
             cout << "Adet : " << gecici->veri.adet << endl;
-
-            cout << "\nBu kaydý silmek istiyor musunuz? (E/H): ";
-            char onay;
-            cin >> onay;
-
-            if (onay == 'E' || onay == 'e') {
-                bulundu = ListeDenSil(gecici->veri.marka); 
-                break; 
-            }
+            sayac++;
         }
         gecici = gecici->next;
     }
 
-    if (bulundu) {
-        DosyayaAktar(); 
-        cout << "\nKayýt baþarýyla silindi.\n";
-    } else {
-        cout << "\nSilme iþlemi iptal edildi veya marka bulunamadý.\n";
+    if (sayac == 0) {
+        cout << "\nBu markaya ait stok bulunamadý.\n";
+        return;
+    }
+
+    int silIndex;
+    cout << "\nHangi sýradaki kaydý silmek istiyorsunuz? (1-" << sayac << "): ";
+    cin >> silIndex;
+
+    if (silIndex < 1 || silIndex > sayac) {
+        cout << "Geçersiz seçim!\n";
+        return;
+    }
+    int say = 0;
+    gecici = bas;
+    while (gecici != NULL) {
+        if (strcmp(gecici->veri.marka, silinecekMarka) == 0) {
+            say++;
+            if (say == silIndex) {
+                if (ListeDenSil(gecici)) {
+                    DosyayaAktar();
+                    cout << "\nKayýt baþarýyla silindi.\n";
+                } else {
+                    cout << "\nKayýt silinemedi.\n";
+                }
+                return;
+            }
+        }
+        gecici = gecici->next;
     }
 }
+
 
 
 void StokDuzenle() {
@@ -369,29 +388,28 @@ void StokDuzenle() {
     }
 }
 
-bool ListeDenSil(const char* silMarka) {
-    if (bas == NULL) return false;
+bool ListeDenSil(Node* hedef) {
+    if (bas == NULL || hedef == NULL) return false;
 
-    Node* gecici = bas;
-    Node* onceki = NULL;
-    bool bulundu = false;
-
-    while (gecici != NULL) {
-        if (strcmp(gecici->veri.marka, silMarka) == 0) {
-            if (onceki == NULL) {
-                bas = gecici->next;
-            } else {
-                onceki->next = gecici->next;
-            }
-            delete gecici;
-            bulundu = true;
-            break;
-        }
-        onceki = gecici;
-        gecici = gecici->next;
+    if (bas == hedef) {
+        Node* silinecek = bas;
+        bas = bas->next;
+        delete silinecek;
+        return true;
     }
 
-    return bulundu;
+    Node* onceki = bas;
+    while (onceki->next != NULL && onceki->next != hedef) {
+        onceki = onceki->next;
+    }
+
+    if (onceki->next == hedef) {
+        onceki->next = hedef->next;
+        delete hedef;
+        return true;
+    }
+
+    return false; 
 }
 
 
